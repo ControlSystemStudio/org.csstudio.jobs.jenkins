@@ -1,0 +1,46 @@
+# CS-Studio Jenkins Build Job
+#
+# Jenkins Job Builder configuration template
+#
+
+- job-template:
+    name: 'cs-studio-{top}-{name}-{version}'
+    defaults: build-defaults
+
+    project-type: maven
+    description: |
+        <h2>Build {name} ({language}) from its GitHub repo.</h2>
+        {generated-job-warning}
+
+    block-upstream: true
+
+    scm:
+        - git:
+            url: git@github.com:ControlSystemStudio/cs-studio.git
+            branches:
+                - '{version}'
+            skip-tag: true
+            force-polling-using-workspace: true
+            sparse-checkout:
+                paths:
+                    - '{top}/{name}'
+                    - '{top}/pom.xml'
+                    - 'build/cs-studio-jenkins-checkstyle'
+            shallow-clone: true
+
+    triggers:
+       - pollscm:
+            cron: 'H/5 * * * *'
+            ignore-post-commit-hooks: True
+
+    maven:
+       maven-name: Maven 3.0.4
+       root-pom: '{top}/{name}/pom.xml'
+       goals: clean verify -Declipse.p2.mirrors=false -Dtycho.localArtifacts=ignore -PuploadRepo -Pcheckstyle
+       settings: org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1360703118225
+
+    publishers:
+        - email:
+            recipients: '{email-notify}'
+            send-to-individuals: true
+        - checkstyle

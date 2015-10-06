@@ -1,0 +1,27 @@
+- defaults:
+    name: build-defaults
+
+    email-notify: cs-studio-core@lists.sourceforge.net
+
+    generated-job-warning: |
+        <p><i>Automatically generated job. <b>Do not edit using the web interface.</b><br>
+        See <a href="https://github.com/ControlSystemStudio/org.csstudio.jenkins.jobs">job generator repository</a>
+        for details.</i></p>
+    
+    language: 'Java/Maven'
+
+    properties:
+        - github:
+                url: https://github.com/ControlSystemStudio/cs-studio/
+
+    logrotate:
+        daysToKeep: 60
+        numToKeep: -1
+        artifactDaysToKeep: -1
+        artifactNumToKeep: 2
+
+    maven:
+        ignore-upstream-changes: false
+        settings: org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1360703118225
+    
+    jdk: OpenJDK 8 (latest)

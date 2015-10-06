@@ -1,0 +1,35 @@
+#
+#
+#
+#
+
+- project:
+    name: base
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: platform
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: ui
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: unorganized
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: utility
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
