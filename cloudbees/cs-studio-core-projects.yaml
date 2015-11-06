@@ -33,3 +33,10 @@
     version: master
     jobs:
         - 'cs-studio-{top}-{name}-{version}'
+
+- project:
+    name: diirt
+    top: core
+    version: master
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
