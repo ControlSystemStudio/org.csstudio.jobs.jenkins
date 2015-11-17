@@ -1,0 +1,83 @@
+#
+#
+#
+#
+
+- project:
+    name: alarm
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: appunorganized
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: apputil
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: archive
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: channel
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: databrowser
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: diag
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: display
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: logbook
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: opibuilder
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: scan
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: shift
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
+- project:
+    name: snl
+    top: applications
+    version: 4.2.x
+    jobs:
+        - 'cs-studio-{top}-{name}-{version}'
