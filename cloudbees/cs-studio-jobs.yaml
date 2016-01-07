@@ -1,0 +1,44 @@
+# CS-Studio Jenkins jobs
+#
+
+- job-group:
+    name: 'core-jobs'
+    top: core
+    module:
+        - base
+        - platform
+        - ui
+        - unorganized
+        - utility
+        - diirt
+    jobs:
+        - 'cs-studio-{top}-{module}-{version}'
+
+- job-group:
+    name: 'applications-jobs'
+    top: applications
+    module:
+        - alarm
+        - appunorganized
+        - apputil
+        - archive
+        - channel
+        - databrowser
+        - diag
+        - display
+        - logbook
+        - opibuilder
+        - scan
+        - shift
+        - snl
+    jobs:
+        - 'cs-studio-{top}-{module}-{version}'
+
+- project:
+    name: cs-studio
+    version:
+        - master
+        - 4.2.x
+    jobs:
+        - 'core-jobs'
+        - 'applications-jobs'
