@@ -5,14 +5,25 @@
 
 - job-template:
     name: 'cs-studio-{top}-{module}-{version}'
-    defaults: build-defaults
 
     project-type: maven
     description: |
-        <h2>Build {module} ({language}) from its GitHub repo.</h2>
-        {generated-job-warning}
+        <h2>Build {module} (Java/Maven) from its GitHub repo.</h2>
+        <p><i>Automatically generated job. <b>Do not edit using the web interface.</b><br>
+        See <a href="https://github.com/ControlSystemStudio/org.csstudio.jobs.jenkins">job generator repository</a>
+        for details.</i></p>
+        
+    properties:
+        - github:
+                url: https://github.com/ControlSystemStudio/cs-studio/
 
     block-upstream: true
+
+    logrotate:
+        daysToKeep: 60
+        numToKeep: -1
+        artifactDaysToKeep: -1
+        artifactNumToKeep: 2
 
     scm:
         - git:
@@ -39,8 +50,10 @@
        goals: clean verify -Declipse.p2.mirrors=false -Dtycho.localArtifacts=ignore -PuploadRepo -Pcheckstyle
        settings: org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1360703118225
 
+    jdk: OpenJDK 8 (latest)
+
     publishers:
         - email:
-            recipients: '{email-notify}'
+            recipients: 'cs-studio-core@lists.sourceforge.net'
             send-to-individuals: true
         - checkstyle
