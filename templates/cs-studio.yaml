@@ -16,11 +16,13 @@
 
     scm:
         - git:
-            url: git@github.com:ControlSystemStudio/cs-studio.git
+            url: https://github.com/ControlSystemStudio/cs-studio.git
             branches:
                 - '{version}'
+            included-regions:
+                - '{top}/{name}/.*'
+                - '{top}/pom.xml'
             skip-tag: true
-            force-polling-using-workspace: true
             sparse-checkout:
                 paths:
                     - '{top}/{name}'
@@ -29,9 +31,7 @@
             shallow-clone: true
 
     triggers:
-       - pollscm:
-            cron: 'H/5 * * * *'
-            ignore-post-commit-hooks: True
+        - github
 
     maven:
        maven-name: Maven 3.0.4
